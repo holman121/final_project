@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180318014005) do
+ActiveRecord::Schema.define(version: 20180318014704) do
+
+  create_table "accessories", force: :cascade do |t|
+    t.string "name"
+    t.decimal "price"
+    t.integer "quantity"
+    t.integer "category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_accessories_on_category_id"
+  end
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -41,6 +51,59 @@ ActiveRecord::Schema.define(version: 20180318014005) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_admin_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "clothings", force: :cascade do |t|
+    t.string "name"
+    t.decimal "price"
+    t.integer "quantity"
+    t.integer "category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_clothings_on_category_id"
+  end
+
+  create_table "customers", force: :cascade do |t|
+    t.string "full_name"
+    t.string "address"
+    t.string "phone"
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.string "product_name"
+    t.integer "quantity"
+    t.decimal "total_price"
+    t.integer "customer_id"
+    t.integer "size_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["customer_id"], name: "index_orders_on_customer_id"
+    t.index ["size_id"], name: "index_orders_on_size_id"
+  end
+
+  create_table "shoes", force: :cascade do |t|
+    t.string "name"
+    t.decimal "price"
+    t.integer "quantity"
+    t.integer "category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_shoes_on_category_id"
+  end
+
+  create_table "sizes", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
