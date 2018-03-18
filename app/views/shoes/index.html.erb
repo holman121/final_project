@@ -1,2 +1,2 @@
 <h1>Shoes</h1>
-<%= render @shoe_all %>
+<%= render partial:'shoe', collection: @shoe_all, locals: { show_detail: true}%>

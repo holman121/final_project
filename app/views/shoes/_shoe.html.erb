@@ -1,4 +1,11 @@
 <h2><%= shoe.name %></h2>
-<p>Price: <%= shoe.price %></p>
-<p>Quantity: <%= shoe.quantity %></p>
 <p>Type: <%= shoe.category.name %></p>
+
+<% if !show_detail %>
+  <p>Price: <%= shoe.price %></p>
+  <p>Quantity: <%= shoe.quantity %></p>
+<% end %>
+
+<% if show_detail %>
+  <p><%= link_to 'View Details', shoe %></p>
+<% end %>
