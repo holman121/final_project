@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'shoes/index'
+
   get 'accessories/index', to: 'accessories#index'
 
   get 'accessories/show', to: 'accessories#show'
