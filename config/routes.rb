@@ -7,11 +7,11 @@ Rails.application.routes.draw do
 
   get 'shoes/index', to: 'shoes#index'
 
-  get 'shoes/show'
+  get 'shoes/show', to: 'shoes#show'
 
   get 'clothings/index', to: 'clothings#index'
 
-  get 'clothings/show'
+  get 'clothings/show', to: 'clothings#show'
 
   root to: 'clothings#index'
 
