@@ -5,12 +5,12 @@
     <p class="col-12"><%= image_tag clothing.image, width:250 %></p>
 
 <% if !show_detail %>
-  <p>Price: <%= clothing.price %></p>
-  <p>Quantity: <%= clothing.quantity %></p>
+  <p class="col-12">Price: <%= clothing.price %></p>
+  <p class="col-12">Quantity: <%= clothing.quantity %></p>
 <% end %>
 
-  <% if clothing.sale == "yes" %>
-    <p>On Sale</p>
+  <% if clothing.sale.name == 'yes' %>
+    <p class="col-12 text-danger">On Sale</p>
   <% end %>
 
 <% if show_detail %>
