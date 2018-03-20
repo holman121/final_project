@@ -9,6 +9,10 @@
   <p>Quantity: <%= clothing.quantity %></p>
 <% end %>
 
+  <% if clothing.sale == "yes" %>
+    <p>On Sale</p>
+  <% end %>
+
 <% if show_detail %>
   <p class="col-12"><%= link_to 'View Details', clothing %></p>
 <% end %>

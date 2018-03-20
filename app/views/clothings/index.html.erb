@@ -7,7 +7,7 @@
     <%= select_tag :categoryDrops, options_from_collection_for_select(@category_all, "id", "name"),
                    include_blank: "Types"%>
 
-    <%= select_tag :filter, "<option>New</option><option>Recent</option>".html_safe,
+    <%= select_tag :filter, "<option>Sale</option><option>Recent</option>".html_safe,
                    include_blank: "Filter"%>
     <%= submit_tag 'Search'%>
 <% end %>
