@@ -1,2 +1,18 @@
-<h1>Clothing</h1>
+<div class="row">
+<h1 class="ml-5 mt-5 col-12">Clothing</h1>
+
+<div class="col-12 mt-3 ml-5">
+<%= form_tag(clothings_path, method: :get) do %>
+  <%= text_field_tag :term, params[:term] %>
+    <%= select_tag 'property[type_id]', options_from_collection_for_select(@rental_types, 'id', 'name'), id: 'countries_select' %>
+
+    <%= submit_tag 'Search'%>
+<% end %>
+</div>
+
 <%= render partial:'clothing', collection: @clothing_all, locals: { show_detail: true}%>
+
+  <div class="col-12">
+<%= paginate @clothing_all %>
+</div>
+</div>

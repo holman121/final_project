@@ -1,2 +1,10 @@
 <h1>Shoes</h1>
+
+<%= form_tag(shoes_path, method: :get) do %>
+  <%= text_field_tag :term, params[:term] %>
+  <%= submit_tag 'Search'%>
+<% end %>
+
 <%= render partial:'shoe', collection: @shoe_all, locals: { show_detail: true}%>
+
+<%= paginate @shoe_all %>

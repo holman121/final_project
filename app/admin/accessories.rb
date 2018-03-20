@@ -11,5 +11,5 @@ ActiveAdmin.register Accessory do
 #   permitted << :other if params[:action] == 'create' && current_user.admin?
 #   permitted
 # end
-  permit_params :name, :quantity, :price, :category_id
+  permit_params :name, :quantity, :price, :category_id, :term
 end

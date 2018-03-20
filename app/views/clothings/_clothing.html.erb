@@ -1,6 +1,8 @@
-<h2><%= clothing.name %></h2>
-<p>Type: <%= clothing.category.name %></p>
-<p><%= image_tag clothing.image, width:250 %></p>
+<div class="col-3 ml-5 mt-5">
+    <h2 class="col-12"><%= clothing.name %></h2>
+
+    <p class="col-12">Type: <%= clothing.category.name %></p>
+    <p class="col-12"><%= image_tag clothing.image, width:250 %></p>
 
 <% if !show_detail %>
   <p>Price: <%= clothing.price %></p>
@@ -8,5 +10,6 @@
 <% end %>
 
 <% if show_detail %>
-  <p><%= link_to 'View Details', clothing %></p>
+  <p class="col-12"><%= link_to 'View Details', clothing %></p>
 <% end %>
+</div>
