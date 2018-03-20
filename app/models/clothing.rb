@@ -1,5 +1,6 @@
 class Clothing < ApplicationRecord
   belongs_to :category
+  belongs_to :sale
   mount_uploader :image, ImageUploader
 
   validates :name,  presence: true
