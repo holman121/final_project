@@ -1,3 +1,4 @@
+<% if !shopping_cart %>
 <div class="col-3 ml-5 mt-5">
     <h2 class="col-12"><%= clothing.name %></h2>
 
@@ -16,4 +17,15 @@
 <% if show_detail %>
   <p class="col-12"><%= link_to 'View Details', clothing %></p>
 <% end %>
+
+  <p class="col-12"><%= link_to 'Add to Shopping Cart', add_to_shopping_cart_clothing_path(clothing), method: :post %></p>
 </div>
+<% end %>
+
+<% if shopping_cart %>
+<div class="col-3 card">
+  <p class="col-12"><%= clothing.name %></p>
+  <p class="col-12">Price: <%= clothing.price %></p>
+  <p class="col-12"><%= image_tag clothing.image, width:50 %></p>
+</div>
+<% end %>

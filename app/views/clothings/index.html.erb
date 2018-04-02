@@ -13,7 +13,7 @@
 <% end %>
 </div>
 
-<%= render partial:'clothing', collection: @clothing_all, locals: { show_detail: true}%>
+<%= render partial:'clothing', collection: @clothing_all, locals: { show_detail: true, shopping_cart: false}%>
 
   <div class="col-12 ml-5 pl-4 mt-5 mb-5">
 <%= paginate @clothing_all %>

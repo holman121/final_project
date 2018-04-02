@@ -19,8 +19,11 @@
     </ul>
   </nav>
 
+  <div class="ml-auto">
 
-
+    <%= render partial:'clothing', collection: @shopping_cart_items, locals: { show_detail: true, shopping_cart: true}%>
+    <p><%= link_to "Clear Shopping Cart", clear_shopping_cart_clothings_path, method: :post %></p>
+  </div>
     <%= yield %>
   </body>
 </html>

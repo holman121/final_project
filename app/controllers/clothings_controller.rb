@@ -1,4 +1,8 @@
 class ClothingsController < ApplicationController
+
+  before_action :init_shopping_cart
+  before_action :load_shopping_cart_items
+
   def index
 
     @clothing_all = if (params[:term] || params[:categoryDrops]) && params[:filter] == "Recent"
@@ -36,4 +40,25 @@ class ClothingsController < ApplicationController
   def recent_update
     @recent_clothing = Clothing.where(updated_at: (Time.now - 12.hours)..Time.now)
   end
+
+  def add_to_shopping_cart
+    id = params[:id].to_i
+    session[:shopping_cart] << id
+    redirect_to clothings_path
+  end
+
+  def clear_shopping_cart
+    session[:shopping_cart] = nil
+    redirect_to clothings_path
+  end
+
+  private
+  def init_shopping_cart
+      session[:shopping_cart] ||= [];
+  end
+
+  def load_shopping_cart_items
+    @shopping_cart_items = Clothing.find(session[:shopping_cart])
+  end
+
 end

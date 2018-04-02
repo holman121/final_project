@@ -17,7 +17,16 @@ Rails.application.routes.draw do
 
   resources :accessories
   resources :shoes
-  resources :clothings
+  resources :clothings, only: [:index, :show, :recent_update] do
+    collection do
+      post :clear_shopping_cart
+    end
+
+    member do
+      post :add_to_shopping_cart
+      # post :delete_from_shopping_cart
+    end
+  end
   resources :abouts
 
   root to: 'clothings#index'
