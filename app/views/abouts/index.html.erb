@@ -1,0 +1,7 @@
+<div class="row">
+<h1 class="m-auto text-center py-5 col-12">About</h1>
+<% @about_all.each do |about| %>
+  <p class="lead text-center m-auto col-8"> <%= about.content %></p>
+  <p class="col-8 my-5 m-auto text-center pt-4">Contact us -- <%= about.contact %></p>
+<% end %>
+</div>

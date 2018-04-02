@@ -30,7 +30,7 @@ class ClothingsController < ApplicationController
   end
 
   def show
-    @clothing = Clothing.find(params[:id]).order('name')
+    @clothing = Clothing.find(params[:id])
   end
 
   def recent_update

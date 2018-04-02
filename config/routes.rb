@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'abouts/index'
+
   # get 'accessories/index', to: 'accessories#index'
   #
   # get 'accessories/show', to: 'accessories#show'
@@ -16,6 +18,7 @@ Rails.application.routes.draw do
   resources :accessories
   resources :shoes
   resources :clothings
+  resources :abouts
 
   root to: 'clothings#index'
 
