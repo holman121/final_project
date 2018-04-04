@@ -2,6 +2,7 @@ class ClothingsController < ApplicationController
 
   before_action :init_shopping_cart
   before_action :load_shopping_cart_items
+  before_action :init_quantity
 
   def index
 
@@ -44,6 +45,7 @@ class ClothingsController < ApplicationController
   def add_to_shopping_cart
     id = params[:id].to_i
     session[:shopping_cart] << id
+
     redirect_to clothings_path
   end
 
@@ -52,13 +54,30 @@ class ClothingsController < ApplicationController
     redirect_to clothings_path
   end
 
+  def delete_from_shopping_cart
+    id = params[:id].to_i
+    session[:shopping_cart].delete(id)
+
+    redirect_to clothings_path
+  end
+
+  def delete_one_item_from_shopping_cart
+    id = params[:id].to_i
+    session[:shopping_cart].delete_at(session[:shopping_cart].index(id) || session[:shopping_cart].length)
+    redirect_to clothings_path
+  end
+
   private
   def init_shopping_cart
-      session[:shopping_cart] ||= [];
+      session[:shopping_cart] ||= []
   end
 
   def load_shopping_cart_items
     @shopping_cart_items = Clothing.find(session[:shopping_cart])
+  end
+
+  def init_quantity
+    session[:quantity] ||= []
   end
 
 end

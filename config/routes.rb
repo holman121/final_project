@@ -24,7 +24,8 @@ Rails.application.routes.draw do
 
     member do
       post :add_to_shopping_cart
-      # post :delete_from_shopping_cart
+      post :delete_from_shopping_cart
+      post :delete_one_item_from_shopping_cart
     end
   end
   resources :abouts

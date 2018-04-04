@@ -8,6 +8,7 @@
 <% if !show_detail %>
   <p class="col-12">Price: <%= clothing.price %></p>
   <p class="col-12">Quantity: <%= clothing.quantity %></p>
+    <p class="col-12 mb-5"><%= link_to 'Add to Shopping Cart', add_to_shopping_cart_clothing_path(clothing), method: :post %></p>
 <% end %>
 
   <% if clothing.sale.name == 'yes' %>
@@ -18,14 +19,21 @@
   <p class="col-12"><%= link_to 'View Details', clothing %></p>
 <% end %>
 
-  <p class="col-12"><%= link_to 'Add to Shopping Cart', add_to_shopping_cart_clothing_path(clothing), method: :post %></p>
 </div>
 <% end %>
 
 <% if shopping_cart %>
-<div class="col-3 card">
-  <p class="col-12"><%= clothing.name %></p>
-  <p class="col-12">Price: <%= clothing.price %></p>
-  <p class="col-12"><%= image_tag clothing.image, width:50 %></p>
+
+<div class="row mt-4 mx-auto">
+
+  <p class="col-3 "><%= image_tag clothing.image, width:50 %></p>
+  <p class="col-3 "><%= clothing.name %></p>
+  <p class="col-2 ">Price: <%= clothing.price * session[:shopping_cart].select{|a| a == clothing.id}.count %></p>
+  <p class="col-2 ">Quantity: <%= link_to '< ', delete_one_item_from_shopping_cart_clothing_path(clothing), method: :post %>
+                              <%= session[:shopping_cart].select{|a| a == clothing.id}.count %>
+                              <%= link_to ' >', add_to_shopping_cart_clothing_path(clothing), method: :post %>
+  </p>
+  <p class="col-2 my-0"><%= link_to 'Delete', delete_from_shopping_cart_clothing_path(clothing), method: :post %></p>
+
 </div>
 <% end %>

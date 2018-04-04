@@ -21,6 +21,10 @@
 
   <div class="ml-auto">
 
+    <% if session[:shopping_cart] == []%>
+      <p class="lead mt-3">There is no item</p>
+    <% end %>
+
     <%= render partial:'clothing', collection: @shopping_cart_items, locals: { show_detail: true, shopping_cart: true}%>
     <p><%= link_to "Clear Shopping Cart", clear_shopping_cart_clothings_path, method: :post %></p>
   </div>
