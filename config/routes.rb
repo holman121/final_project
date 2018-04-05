@@ -17,6 +17,8 @@ Rails.application.routes.draw do
   # get 'clothings/show', to: 'clothings#show'
   #
 
+  resources :orders
+  resources :customers
   resources :accessories
   resources :shoes
   resources :clothings, only: [:index, :show, :recent_update] do

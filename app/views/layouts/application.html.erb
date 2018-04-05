@@ -16,6 +16,7 @@
       <li class="nav-item mx-4 text-info"><%= link_to "Clothing", "/" %></li>
       <li class="nav-item mx-4"><%= link_to "Accessory", accessories_path %></li>
       <li class="nav-item mx-4"><%= link_to "Shoe", shoes_path %></li>
+      <li class="nav-item mx-4"><%= link_to "Order", orders_path %></li>
     </ul>
   </nav>
 
@@ -25,7 +26,7 @@
       <p class="lead mt-3">There is no item</p>
     <% end %>
 
-    <%= render partial:'clothing', collection: @shopping_cart_items, locals: { show_detail: true, shopping_cart: true}%>
+    <%= render partial:'clothings/clothing', collection: @shopping_cart_items, locals: { show_detail: true, shopping_cart: true}%>
     <p><%= link_to "Clear Shopping Cart", clear_shopping_cart_clothings_path, method: :post %></p>
   </div>
     <%= yield %>

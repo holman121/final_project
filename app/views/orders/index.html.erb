@@ -1,2 +1,14 @@
-<h1>Orders#index</h1>
-<p>Find me in app/views/orders/index.html.erb</p>
+<div class="row">
+  <h1 class="m-auto text-center py-5 col-12">Order</h1>
+  <% @order_all.each do |order| %>
+    <div class="card col-4 mb-5">
+    <h4 class="">Customer: <%= link_to order.customer.full_name, customers.path %></h4>
+    <h4 class="">Order Detail:</h4>
+    <p class="">Product: <%= order.product_name %></p>
+    <p class="">Quantity: <%= order.quantity %></p>
+    <p class="">Size: <%= order.size.name %></p>
+    <p class=" ">Total: <%= order.total_price %></p>
+    <p class="">Order Date:<%= order.created_at %></p>
+    </div>
+  <% end %>
+</div>
