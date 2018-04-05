@@ -1,7 +1,7 @@
-<div class="row">
+<div class="row mx-auto">
   <h1 class="m-auto text-center py-5 col-12">Order</h1>
   <% @order_all.each do |order| %>
-    <div class="card col-4 mb-5">
+    <div class="card col-6 mb-5">
     <h4 class="">Customer: <%= link_to order.customer.full_name, order.customer %></h4>
     <h4 class="">Order Detail:</h4>
     <p class="">Product: <%= order.product_name %></p>
