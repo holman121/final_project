@@ -6,5 +6,5 @@ class Clothing < ApplicationRecord
   validates :name,  presence: true
   validates :price, :quantity, numericality: true
 
-  paginates_per 5
+  paginates_per 6
 end
