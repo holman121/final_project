@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'orders/index'
+
   get 'abouts/index'
 
   # get 'accessories/index', to: 'accessories#index'
