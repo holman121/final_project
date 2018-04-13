@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'charges/new'
+
+  get 'charges/create'
+
   get 'customers/index'
 
   get 'customers/show'
@@ -8,19 +12,8 @@ Rails.application.routes.draw do
 
   get 'abouts/index'
 
-  # get 'accessories/index', to: 'accessories#index'
-  #
-  # get 'accessories/show', to: 'accessories#show'
-  #
-  # get 'shoes/index', to: 'shoes#index'
-  #
-  # get 'shoes/show', to: 'shoes#show'
-  #
-  # get 'clothings/index', to: 'clothings#index'
-  #
-  # get 'clothings/show', to: 'clothings#show'
-  #
 
+  resources :charges
   resources :orders
   resources :customers
   resources :accessories

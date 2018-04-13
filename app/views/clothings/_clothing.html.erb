@@ -26,6 +26,8 @@
 
 <div class="row mt-4 mx-auto ">
 
+  <% @total += (clothing.price * session[:shopping_cart].select{|a| a == clothing.id}.count)  %>
+
   <p class="col-3 "><%= image_tag clothing.image, width:40 %></p>
   <p class="col-3 "><%= clothing.name %></p>
   <p class="col-2 ">Price: <%= clothing.price * session[:shopping_cart].select{|a| a == clothing.id}.count %></p>

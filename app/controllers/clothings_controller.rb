@@ -4,6 +4,7 @@ class ClothingsController < ApplicationController
   before_action :load_shopping_cart_items
   before_action :init_quantity
 
+
   def index
 
     @clothing_all = if (params[:term] || params[:categoryDrops]) && params[:filter] == "Recent"
@@ -44,10 +45,19 @@ class ClothingsController < ApplicationController
 
   def add_to_shopping_cart
     id = params[:id].to_i
+    # price = params[:price].to_s
+
     session[:shopping_cart] << id
+
+    # session[:shopping_cart].each do |id|
+    #   @price = Clothing.where('Id == ?', id)
+    #   # @total += @price.to_s
+    # end
+
 
     redirect_to clothings_path
   end
+
 
   def clear_shopping_cart
     session[:shopping_cart] = nil
@@ -67,9 +77,11 @@ class ClothingsController < ApplicationController
     redirect_to clothings_path
   end
 
+
   private
   def init_shopping_cart
       session[:shopping_cart] ||= []
+      @total ||= 0
   end
 
   def load_shopping_cart_items
